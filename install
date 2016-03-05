@@ -2,18 +2,17 @@
 
 # dependencies:
 
-PROJDIR=.
+# TODO: This should identify the location of the install script,
+#       not the location from which the user calls the script.
+PROJDIR=$(pwd)
 
 # root home dir
 ln -s $PROJDIR/bashrc ~/.bashrc
 ln -s $PROJDIR/xinitrc ~/.xinitrc
 ln -s $PROJDIR/xprofile ~/.xprofile
 ln -s $PROJDIR/Xresources ~/.Xresources
+ln -s $PROJDIR/Xresources.d ~/.Xresources.d
 ln -s $PROJDIR/yaourtrc ~/.yaourtrc
-
-# emacs
-mkdir ~/.emacs.d
-ln -s $PROJDIR/emacs.d/init.el ~/.emacs.d/init.el
 
 # systemctl doesn't like symlinked service files
 mkdir -p ~/.config/systemd/user
@@ -25,10 +24,9 @@ systemctl --user start emacs
 ln -s $PROJDIR/config/bspwm ~/.config/bspwm
 ln -s $PROJDIR/config/sxhkd ~/.config/sxhkd
 
-# URxvt
-ln -s $PROJDIR/urxvt ~/.urxvt
+# pacaur
+ln -s $PROJDIR/config/pacaur ~/.config/pacaur
 
 # gnome swapcaps (TODO: can this be removed since the line is in .xprofile?)
-mkdir ~/.config/autostart
+mkdir -p ~/.config/autostart
 ln -s $PROJDIR/config/autostart/swapcaps.desktop ~/.config/autostart/swapcaps.desktop
-
