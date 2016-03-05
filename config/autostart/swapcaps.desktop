@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=swapcaps
+Comment=swap caps and left ctrl keys
+Exec=setxkbmap -option ctrl:swapcaps
+Terminal=true
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Type=Application
+StartupNotify=false
+Hidden=false

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# dependencies:
+
+PROJDIR=.
+
+# root home dir
+ln -s $PROJDIR/bashrc ~/.bashrc
+ln -s $PROJDIR/xinitrc ~/.xinitrc
+ln -s $PROJDIR/xprofile ~/.xprofile
+ln -s $PROJDIR/Xresources ~/.Xresources
+ln -s $PROJDIR/yaourtrc ~/.yaourtrc
+
+# emacs
+mkdir ~/.emacs.d
+ln -s $PROJDIR/emacs.d/init.el ~/.emacs.d/init.el
+
+# systemctl doesn't like symlinked service files
+mkdir -p ~/.config/systemd/user
+cp $PROJDIR/config/systemd/user/emacs.service ~/.config/systemd/user/emacs.service
+systemctl --user enable emacs
+systemctl --user start emacs
+
+# bspwm
+ln -s $PROJDIR/config/bspwm ~/.config/bspwm
+ln -s $PROJDIR/config/sxhkd ~/.config/sxhkd
+
+# URxvt
+ln -s $PROJDIR/urxvt ~/.urxvt
+
+# gnome swapcaps (TODO: can this be removed since the line is in .xprofile?)
+mkdir ~/.config/autostart
+ln -s $PROJDIR/config/autostart/swapcaps.desktop ~/.config/autostart/swapcaps.desktop
+

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+export WINDOW_GAP=24
+
+bspc config border_width  1
+bspc config window_gap    $WINDOW_GAP
+
+bspc config split_ratio         0.52
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+bspc config focus_by_distance   true
+
+#bspc monitor -d I II III IV V VI VII VIII IX X
+#bspc monitor -d i ii iii iv v vi vii viii ix x
+bspc monitor -d α β γ δ ε ζ η θ ι κ
+
+bspc rule -a Gimp desktop=^8 follow=on floating=on
+bspc rule -a Chromium desktop=^2
+bspc rule -a mplayer2 floating=on
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+# autostart apps
+dropbox-cli start &
+xscreensaver -no-splash &
+#xrdb -merge ~/.Xresources # so that .Xresources is sourced
+
+# start desktop components
+export PATH=$PATH:~/.config/bspwm/
+panel &
+feh --bg-fill ~/Dropbox/pics/Wallpaper/Unique/03080_espressocrema_3840x2160.jpg
+sxhkd &

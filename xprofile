@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# many sources say to use xim
+# between xim, ibus, scim, and uim,
+# uim seems to be the only one
+# that works with arch + GNOME...
+
+# xim did not recognize my compose key
+
+# ibus and scim did not recognize the new keys in ~/.XCompose, but on second thought,
+# I did not try it with the first line un-commented...
+
+# setting xmodifiers to use scim, uim, or nothing ("@im=")
+# also helps urxvt load quickly. ibus is no good.
+export XMODIFIERS="@im=uim" # this line makes non-GTK programs work with XCompose addons
+export GTK_IM_MODULE=uim    # this line alone with xim is sufficient for ubuntu
+export ARCH="x86_64"
+
+setxkbmap -option ctrl:swapcaps # swap caps and left ctrl
+xrdb -merge ~/.Xresources       # load urxvt settings
+
+export XDG_CONFIG_HOME="$HOME/.config" # needed for bspwm
