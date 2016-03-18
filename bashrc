@@ -49,6 +49,7 @@ function ediff { emacsclient -t -a "" -e "(ediff-files \"$1\" \"$2\")"; }
 export -f ediff
 
 # some local settings ===============================================================================
+export PATH=$HOME/opt/:$PATH
 export EDITOR='emacsclient -t -a ""' VISUAL='emacsclient -c -a ""'
 ulimit -s unlimited # unlimit stack size
 
