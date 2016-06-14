@@ -10,6 +10,7 @@ alias grep='grep --color=auto'
 
 # misc shortcuts
 alias sudo='sudo ' # aliases expand right to left, so this hack lets my aliases be used within sudo
+alias ssh='ssh -Y'
 alias du1='du -hd 1'
 alias swapcaps='setxkbmap -option ctrl:swapcaps'
 alias pacaur='pacman_program=pacaur pacmatic'
@@ -36,7 +37,6 @@ import sympy'
 #         this may involve some more complex argument parsing that might be easiest
 #         to do with an awk command rather than tucked into this Elisp, or perhaps
 #         write a longer function inside my Emacs init file.
-#       * Set up so that it can be run within sudo, then make it my $EDITOR
 function emc { emacsclient -t -a "" -e "(unless (string= \"\" \"$@\") (find-file \"$@\"))"; }
 export -f emc
 
@@ -50,7 +50,7 @@ export -f ediff
 
 # some local settings ===============================================================================
 export PATH=$HOME/opt/:$PATH
-export EDITOR='emacsclient -t -a ""' VISUAL='emacsclient -c -a ""'
+export EDITOR=emc VISUAL='emacsclient -c -a ""'
 ulimit -s unlimited # unlimit stack size
 
 # terminal settings =================================================================================
