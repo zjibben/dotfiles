@@ -55,7 +55,8 @@ ulimit -s unlimited # unlimit stack size
 
 # terminal settings =================================================================================
 export PS1='\[\e[34;1m\]\u\[\e[0m\]@\[\e[31;1m\]\h\[\e[0m\]:\[\e[32;1m\]\W\[\e[0m\]\$ '
-[ "$TERM" == "dumb" ] && export PROMPT_COMMAND='' # ensure Emacs shell doesn't show extra garbage
+# ensure Emacs shell doesn't show extra garbage, doesn't use less, and opens files in buffers
+[ "$TERM" == "dumb" ] && export PROMPT_COMMAND='' PAGER=cat EDITOR=emacsclient VISUAL=emacsclient
 export COLORTERM=$TERM # my terminal should support color
 
 # prevent bash_history from clearing
