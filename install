@@ -32,3 +32,7 @@ ln -s $PROJDIR/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 # gnome swapcaps (TODO: can this be removed since the line is in .xprofile?)
 mkdir -p ~/.config/autostart
 ln -s $PROJDIR/config/autostart/swapcaps.desktop ~/.config/autostart/swapcaps.desktop
+
+# aspell dictionaries
+ln -s $PROJDIR/aspell.en.pws ~/.aspell.en.pws
+ln -s $PROJDIR/aspell.en.prepl ~/.aspell.en.prepl
