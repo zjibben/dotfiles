@@ -15,7 +15,7 @@ alias du1='du -hd 1'
 alias swapcaps='setxkbmap -option ctrl:swapcaps'
 alias pacaur='pacman_program=pacaur pacmatic'
 
-# run evince on a file, put it in the background, and silence whatever it sends to your terminal
+# run evince on a file, put it in the background, and silence whatever it sends the terminal
 function evinceq { evince "$@" &> /dev/null & }
 
 # a couple calculators, one for quick calculations and another bringing in more advanced stuff
@@ -40,7 +40,7 @@ import sympy'
 function emc { emacsclient -t -a "" -e "(unless (string= \"\" \"$@\") (find-file \"$@\"))"; }
 export -f emc
 
-# load up an independent emacs session with a lighter version of my init file
+# Emacs-lite: load up an independent emacs session with a lighter version of my init file
 alias eml='emacs -nw -q -l ~/.emacs.d/init-lite.el'
 
 # diff files in Emacs, with command line arguments, as an alternative to vimdiff
@@ -51,6 +51,7 @@ export -f ediff
 # some local settings ===============================================================================
 export PATH=$HOME/opt/:$PATH
 export EDITOR=emc VISUAL='emacsclient -c -a ""'
+export GPG_TTY=$(tty)
 ulimit -s unlimited # unlimit stack size
 
 # terminal settings =================================================================================

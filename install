@@ -27,6 +27,8 @@ ln -s $PROJDIR/config/sxhkd ~/.config/sxhkd
 # pacaur
 ln -s $PROJDIR/config/pacaur ~/.config/pacaur
 
+ln -s $PROJDIR/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+
 # gnome swapcaps (TODO: can this be removed since the line is in .xprofile?)
 mkdir -p ~/.config/autostart
 ln -s $PROJDIR/config/autostart/swapcaps.desktop ~/.config/autostart/swapcaps.desktop
