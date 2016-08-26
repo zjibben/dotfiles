@@ -60,6 +60,13 @@ export PS1='\[\e[34;1m\]\u\[\e[0m\]@\[\e[31;1m\]\h\[\e[0m\]:\[\e[32;1m\]\W\[\e[0
 [ "$TERM" == "dumb" ] && export PROMPT_COMMAND='' PAGER=cat EDITOR=emacsclient VISUAL=emacsclient
 export COLORTERM=$TERM # my terminal should support color
 
+# lanl stuff
+alias proxy_on='export http_proxy="http://proxyout.lanl.gov:8080" no_proxy="*.lanl.gov"
+export https_proxy=$http_proxy'
+alias proxy_off='export http_proxy= https_proxy= no_proxy='
+alias at_lanl='ping -c 1 -W 1 proxyout.lanl.gov &> /dev/null'
+alias proxy_switch='at_lanl && proxy_on || proxy_off'
+
 # prevent bash_history from clearing
 # https://bbs.archlinux.org/viewtopic.php?id=150992
 # unset HISTFILESIZE
