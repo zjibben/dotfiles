@@ -12,7 +12,6 @@ ln -s $PROJDIR/xinitrc ~/.xinitrc
 ln -s $PROJDIR/xprofile ~/.xprofile
 ln -s $PROJDIR/Xresources ~/.Xresources
 ln -s $PROJDIR/Xresources.d ~/.Xresources.d
-ln -s $PROJDIR/yaourtrc ~/.yaourtrc
 
 # systemctl doesn't like symlinked service files
 mkdir -p ~/.config/systemd/user
