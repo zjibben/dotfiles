@@ -13,12 +13,6 @@ ln -s $PROJDIR/xprofile ~/.xprofile
 ln -s $PROJDIR/Xresources ~/.Xresources
 ln -s $PROJDIR/Xresources.d ~/.Xresources.d
 
-# systemctl doesn't like symlinked service files
-mkdir -p ~/.config/systemd/user
-cp $PROJDIR/config/systemd/user/emacs.service ~/.config/systemd/user/emacs.service
-systemctl --user enable emacs
-systemctl --user start emacs
-
 # bspwm
 ln -s $PROJDIR/config/bspwm ~/.config/bspwm
 ln -s $PROJDIR/config/sxhkd ~/.config/sxhkd
