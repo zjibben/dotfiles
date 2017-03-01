@@ -13,10 +13,6 @@ ln -s $PROJDIR/xprofile ~/.xprofile
 ln -s $PROJDIR/Xresources ~/.Xresources
 ln -s $PROJDIR/Xresources.d ~/.Xresources.d
 
-# bspwm
-ln -s $PROJDIR/config/bspwm ~/.config/bspwm
-ln -s $PROJDIR/config/sxhkd ~/.config/sxhkd
-
 # pacaur
 ln -s $PROJDIR/config/pacaur ~/.config/pacaur
 
