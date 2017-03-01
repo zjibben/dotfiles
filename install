@@ -12,6 +12,7 @@ ln -s $PROJDIR/xinitrc ~/.xinitrc
 ln -s $PROJDIR/xprofile ~/.xprofile
 ln -s $PROJDIR/Xresources ~/.Xresources
 ln -s $PROJDIR/Xresources.d ~/.Xresources.d
+ln -s $PROJDIR/inputrc ~/.inputrc
 
 # pacaur
 ln -s $PROJDIR/config/pacaur ~/.config/pacaur
