@@ -5,7 +5,7 @@
 # modified/new commands =============================================================================
 # use color versions of commands when they are available
 hash colordiff 2>/dev/null && alias diff=colordiff
-alias ls='ls --color=auto' 
+alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 # misc shortcuts
@@ -24,8 +24,9 @@ function calcsci {
     ipython --no-confirm-exit -ic '
 from math import *
 import scipy as sp
-import matplotlib.pyplot as plt
-import sympy'
+import scipy.linalg as la
+import sympy as sy
+import matplotlib.pyplot as plt'
 }
 
 # some emacs functions
@@ -49,7 +50,9 @@ function ediff { emacsclient -t -a "" -e "(ediff-files \"$1\" \"$2\")"; }
 export -f ediff
 
 # some local settings ===============================================================================
-export PATH=$HOME/opt/:$PATH
+export PATH=$HOME/opt/:$HOME/.local/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/opt/vtk/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=$HOME/opt/vtk/lib/python3.6/site-packages:$PYTHONPATH
 export EDITOR=emc VISUAL='emacsclient -c -a ""'
 export GPG_TTY=$(tty)
 ulimit -s unlimited # unlimit stack size
