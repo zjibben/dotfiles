@@ -11,7 +11,8 @@ alias grep='grep --color=auto'
 # misc shortcuts
 alias sudo='sudo ' # aliases expand right to left, so this hack lets my aliases be used within sudo
 alias ssh='ssh -Y'
-alias du1='du -hd 1'
+alias du1='du -hd 1 | sort -h'
+alias dfh='df -h -x tmpfs -x devtmpfs'
 alias swapcaps='setxkbmap -option ctrl:swapcaps'
 alias pacaur='pacman_program=pacaur pacmatic'
 
