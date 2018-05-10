@@ -18,6 +18,7 @@ ln -s $PROJDIR/inputrc ~/.inputrc
 ln -s $PROJDIR/config/pacaur ~/.config/pacaur
 
 ln -s $PROJDIR/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+ln -s $PROJDIR/gnupg/dirmngr.conf ~/.gnupg/dirmngr.conf
 
 # gnome swapcaps (TODO: can this be removed since the line is in .xprofile?)
 mkdir -p ~/.config/autostart
