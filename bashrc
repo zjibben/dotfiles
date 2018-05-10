@@ -65,6 +65,10 @@ export PS1='\[\e[34;1m\]\u\[\e[0m\]@\[\e[31;1m\]\h\[\e[0m\]:\[\e[32;1m\]\W\[\e[0
 export COLORTERM=$TERM # my terminal should support color
 stty -ixon # so that ctrl-s works for searching
 
+[ "$TERM" == "xterm-256color" ] &&
+    xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT 'dark' \
+          -id $(xprop -root | awk '/^_NET_ACTIVE_WINDOW/ {print $5}')
+
 # lanl stuff
 alias proxy_on='export http_proxy="http://proxyout.lanl.gov:8080" no_proxy="*.lanl.gov"
 export https_proxy=$http_proxy'
