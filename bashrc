@@ -76,6 +76,11 @@ alias proxy_off='export http_proxy= https_proxy= no_proxy='
 alias at_lanl='ping -c 1 -W 1 proxyout.lanl.gov &> /dev/null'
 alias proxy_switch='at_lanl && proxy_on || proxy_off'
 
+export MODULES_USE_COMPAT_VERSION=
+. /etc/modules/init/bash
+#. /etc/profile.d/env-modules.sh
+#. ~/codes/spack/share/spack/setup-env.sh
+
 # prevent bash_history from clearing
 # https://bbs.archlinux.org/viewtopic.php?id=150992
 # unset HISTFILESIZE
