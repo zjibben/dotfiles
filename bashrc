@@ -5,10 +5,9 @@
 # modified/new commands =============================================================================
 # use color versions of commands when they are available
 hash colordiff 2>/dev/null && alias diff=colordiff
-alias ls='ls --color=auto'
+alias ls='ls -B --color=auto'
 alias grep='grep --color=auto'
-
-# misc shortcuts
+alias less='less -i'
 alias sudo='sudo ' # aliases expand right to left, so this hack lets my aliases be used within sudo
 alias ssh='ssh -Y'
 alias du1='du -hd 1 | sort -h'
@@ -53,7 +52,9 @@ export -f ediff
 # some local settings ===============================================================================
 export PATH=$HOME/opt/:$HOME/.local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/opt/vtk/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$HOME/opt/vtk/lib/python3.6/site-packages:$PYTHONPATH
+export PYTHONPATH="$HOME/opt/vtk/lib/python3.6/site-packages:\
+$HOME/.local/lib/python3.7/site-packages/:\
+$PYTHONPATH"
 export EDITOR=emc VISUAL='emacsclient -c -a ""'
 export GPG_TTY=$(tty)
 ulimit -s unlimited # unlimit stack size
@@ -66,6 +67,7 @@ export COLORTERM=$TERM # my terminal should support color
 stty -ixon # so that ctrl-s works for searching
 
 [ -z $SSH_TTY ] && [ "$TERM" == "xterm-256color" ] &&
+    sleep 0.05 &&
     xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT 'dark' \
           -id $(xprop -root | awk '/^_NET_ACTIVE_WINDOW/ {print $5}')
 
