@@ -13,6 +13,8 @@ alias ssh='ssh -Y'
 alias du1='du -hd 1 | sort -h'
 alias dfh='df -h -x tmpfs -x devtmpfs'
 alias swapcaps='setxkbmap -option ctrl:swapcaps'
+alias newmirrors='curl -s "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&use_mirror_status=on" | sed -e "s/^#Server/Server/" -e "/^#/d" | rankmirrors -n 5 -'
+
 
 # run evince on a file, put it in the background, and silence whatever it sends the terminal
 function evinceq { evince "$@" &> /dev/null & }
