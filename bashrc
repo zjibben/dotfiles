@@ -50,6 +50,13 @@ alias eml='emacs -nw -q -l ~/.emacs.d/init-lite.el'
 function ediff { emacsclient -t -a "" -e "(ediff-files \"$1\" \"$2\")"; }
 export -f ediff
 
+# theme modification
+alias gtk-set-light='xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT "light" \
+                     -id $(xprop -root | awk '\''/^_NET_ACTIVE_WINDOW/ {print $5}'\'')'
+alias gtk-set-dark='xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT "dark" \
+                    -id $(xprop -root | awk '\''/^_NET_ACTIVE_WINDOW/ {print $5}'\'')'
+
+
 # some local settings ===============================================================================
 export PATH=$HOME/opt/:$HOME/.local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/opt/vtk/lib:$LD_LIBRARY_PATH
@@ -60,6 +67,7 @@ export EDITOR=emc VISUAL='emacsclient -c -a ""'
 export GPG_TTY=$(tty)
 ulimit -s unlimited # unlimit stack size
 
+
 # terminal settings =================================================================================
 export PS1='\[\e[34;1m\]\u\[\e[0m\]@\[\e[31;1m\]\h\[\e[0m\]:\[\e[32;1m\]\W\[\e[0m\]\$ '
 # ensure Emacs shell doesn't show extra garbage, doesn't use less, and opens files in buffers
@@ -68,9 +76,7 @@ export COLORTERM=$TERM # my terminal should support color
 stty -ixon # so that ctrl-s works for searching
 
 [ -z $SSH_TTY ] && [ "$TERM" == "xterm-256color" ] &&
-    sleep 0.05 &&
-    xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT 'dark' \
-          -id $(xprop -root | awk '/^_NET_ACTIVE_WINDOW/ {print $5}')
+    sleep 0.05 && gtk-set-dark
 
 # lanl stuff
 alias proxy_on='export http_proxy="http://proxyout.lanl.gov:8080" no_proxy="*.lanl.gov"
