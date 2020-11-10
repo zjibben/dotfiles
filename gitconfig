@@ -1,7 +1,9 @@
 [user]
 	name = Zach Jibben
-	email = threeofsix@gmail.com
+	email = zjibben@gmail.com
 [credential]
 	helper = cache --timeout=28800
 [commit]
         gpgsign = true
+[pull]
+        ff = only
