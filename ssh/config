@@ -1,0 +1,13 @@
+Host *
+  AddKeysToAgent 300s
+
+Host *.lanl.gov
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials yes
+    KexAlgorithms +diffie-hellman-group-exchange-sha1
+
+# summit.olcf.ornl.gov
+Host *.ccs.ornl.gov
+    ControlMaster no
+    PreferredAuthentications keyboard-interactive,password
+    ForwardX11 yes
