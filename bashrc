@@ -8,7 +8,7 @@ hash colordiff 2>/dev/null && alias diff=colordiff
 alias ls='ls -B --color=auto'
 alias grep='grep --color=auto'
 alias less='less -i'
-alias sudo='sudo ' # aliases expand right to left, so this hack lets my aliases be used within sudo
+alias sudo='sudo -E ' # aliases expand right to left, so this hack lets my aliases be used within sudo
 alias ssh='ssh -Y'
 alias du1='du -hd 1 | sort -h'
 alias dfh='df -h -x tmpfs -x devtmpfs'
@@ -20,9 +20,9 @@ alias newmirrors='curl -s "https://www.archlinux.org/mirrorlist/?country=US&prot
 function evinceq { evince "$@" &> /dev/null & }
 
 # a couple calculators, one for quick calculations and another bringing in more advanced stuff
-function calc { ipython --no-confirm-exit -ic 'from math import *'; }
+function calc { ipython --no-confirm-exit -i -c 'from math import *'; }
 function calcsci {
-    ipython --no-confirm-exit -ic '
+    ipython --no-confirm-exit -i -c '
 from math import *
 import scipy as sp
 import scipy.linalg as la
@@ -48,7 +48,9 @@ alias eml='emacs -nw -q -l ~/.emacs.d/init-lite.el'
 # diff files in Emacs, with command line arguments, as an alternative to vimdiff
 # TODO: Expand to allow 3 or 4 files, just like vimdiff, to avoid surprises
 function ediff { emacsclient -t -a "" -e "(ediff-files \"$1\" \"$2\")"; }
+function emldiff { eml -e "(ediff-files \"$1\" \"$2\")"; }
 export -f ediff
+export -f emldiff
 
 # theme modification
 alias gtk-set-light='xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT "light" \
@@ -60,10 +62,9 @@ alias gtk-set-dark='xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT "dark
 # some local settings ===============================================================================
 export PATH=$HOME/opt/:$HOME/.local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/opt/vtk/lib:$LD_LIBRARY_PATH
-export PYTHONPATH="$HOME/opt/vtk/lib/python3.6/site-packages:\
-$HOME/.local/lib/python3.7/site-packages/:\
-$PYTHONPATH"
-export EDITOR=emc VISUAL='emacsclient -c -a ""'
+export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages/:$PYTHONPATH
+export EDITOR="${BASH_ALIASES[eml]}"
+export VISUAL=$EDITOR SYSTEMD_EDITOR=$EDITOR
 export GPG_TTY=$(tty)
 ulimit -s unlimited # unlimit stack size
 
@@ -85,9 +86,8 @@ alias proxy_off='export http_proxy= https_proxy= no_proxy='
 alias at_lanl='ping -c 1 -W 1 proxyout.lanl.gov &> /dev/null'
 alias proxy_switch='at_lanl && proxy_on || proxy_off'
 
-export MODULES_USE_COMPAT_VERSION=
-. /etc/modules/init/bash
-#. /etc/profile.d/env-modules.sh
+. /etc/profile.d/modules.sh # lmod
+module use $HOME/codes/modulefiles/linux
 #. ~/codes/spack/share/spack/setup-env.sh
 
 # prevent bash_history from clearing
@@ -98,3 +98,5 @@ export MODULES_USE_COMPAT_VERSION=
 # shopt -s histappend
 # export PROMPT_COMMAND='history -a'
 # export HISTCONTROL=ignoredups
+
+# curl -s "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - > mirrorlist
