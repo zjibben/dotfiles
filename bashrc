@@ -60,7 +60,7 @@ alias gtk-set-dark='xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT "dark
 
 
 # some local settings ===============================================================================
-export PATH=$HOME/opt/:$HOME/.local/bin:$PATH
+export PATH=$HOME/opt/bin/:$HOME/.local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/opt/vtk/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages/:$PYTHONPATH
 export EDITOR="${BASH_ALIASES[eml]}"
