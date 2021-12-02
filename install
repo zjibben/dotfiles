@@ -23,3 +23,6 @@ ln -s $PROJDIR/gnupg/dirmngr.conf ~/.gnupg/dirmngr.conf
 # gnome swapcaps (TODO: can this be removed since the line is in .xprofile?)
 mkdir -p ~/.config/autostart
 ln -s $PROJDIR/config/autostart/swapcaps.desktop ~/.config/autostart/swapcaps.desktop
+
+gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:swapcaps']"
+dconf load /org/gnome/terminal/ < gnome-terminal-config

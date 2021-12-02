@@ -7,7 +7,7 @@
 hash colordiff 2>/dev/null && alias diff=colordiff
 alias ls='ls -B --color=auto'
 alias grep='grep --color=auto'
-alias less='less -i'
+alias less='less -iR'
 alias sudo='sudo -E ' # aliases expand right to left, so this hack lets my aliases be used within sudo
 alias ssh='ssh -Y'
 alias du1='du -hd 1 | sort -h'
@@ -88,7 +88,8 @@ alias at_lanl='ping -c 1 -W 1 proxyout.lanl.gov &> /dev/null'
 alias proxy_switch='at_lanl && proxy_on || proxy_off'
 
 . /etc/profile.d/modules.sh # lmod
-module use $HOME/codes/modulefiles/linux
+export MODULEPATH_ROOT=$HOME/codes/modulefiles/linux
+export MODULEPATH=$MODULEPATH_ROOT/Core:$MODULEPATH
 #. ~/codes/spack/share/spack/setup-env.sh
 
 # prevent bash_history from clearing

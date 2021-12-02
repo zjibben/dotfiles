@@ -1,0 +1,17 @@
+[legacy]
+theme-variant='dark'
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(33,33,33)'
+bold-is-bright=true
+cursor-background-color='rgb(245,126,0)'
+cursor-colors-set=true
+default-size-columns=100
+default-size-rows=36
+font='DejaVu Sans Mono 11'
+foreground-color='rgb(189,189,179)'
+palette=['rgb(37,37,37)', 'rgb(157,37,18)', 'rgb(49,97,4)', 'rgb(186,186,54)', 'rgb(81,128,179)', 'rgb(117,80,123)', 'rgb(6,152,154)', 'rgb(101,101,101)', 'rgb(69,69,69)', 'rgb(205,85,66)', 'rgb(106,175,80)', 'rgb(255,254,10)', 'rgb(82,143,209)', 'rgb(171,117,195)', 'rgb(52,226,226)', 'rgb(117,117,117)']
+scrollback-lines=30000
+scrollbar-policy='never'
+use-system-font=false
+use-theme-colors=false
