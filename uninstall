@@ -1,4 +1,4 @@
 #!/bin/bash
 
-rm ~/.bashrc ~/.xinitrc ~/.xprofile ~/.Xresources ~/.Xresources.d ~/.yaourtrc \
-   ~/.config/bspwm ~/.config/sxhkd ~/.config/pacaur ~/.config/autostart/swapcaps.desktop
+rm ~/.bashrc ~/.xinitrc ~/.xprofile ~/.Xresources ~/.Xresources.d \
+   ~/.config/autostart/swapcaps.desktop
