@@ -1,0 +1,25 @@
+{
+    "name": "Ample",
+    "comment": "Ample for Black Box",
+    "use-theme-colors": false,
+    "foreground-color": "#bdbdb3",
+    "background-color": "#212121",
+    "cursor-color": "#f57e00",
+    "palette": ["#252525",
+                "#cd5542",
+                "#6aaf50",
+                "#baba36",
+                "#528fd1",
+                "#75507B",
+                "#34E2E2",
+                "#656565",
+                "#454545",
+                "#9d2512",
+                "#316104",
+                "#fffe0a",
+                "#5180b3",
+                "#ab75c3",
+                "#06989A",
+                "#757575"
+               ]
+}
